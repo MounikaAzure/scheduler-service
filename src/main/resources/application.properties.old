@@ -1,0 +1,45 @@
+# Server port
+server.port=8090
+
+#mysql database connection
+#spring.datasource.url = jdbc:mysql://localhost:3306/my_test_db
+#spring.datasource.username = root
+#spring.datasource.password = Testing123
+#spring.datasource.timeBetweenEvictionRunsMillis = 60000
+#spring.datasource.maxIdle = 1
+#spring.jpa.generate-ddl=true
+#spring.jpa.hibernate.ddl-auto=update
+#spring.batch.initialize-schema=ALWAYS
+
+
+spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+# create, create-drop, validate, update
+spring.jpa.hibernate.ddl-auto = create-drop
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.h2.console.settings.trace=false
+spring.h2.console.settings.web-allow-others=false
+spring.jpa.defer-datasource-initialization=true
+
+
+#logging.level.org.hibernate.SQL=DEBUG
+#logging.level.org.hibernate.type=TRACE
+
+
+##Initialize a Spring Batch database to false
+#spring.batch.initialize-schema=never
+##spring.batch.table-prefix=batchmetadata.BATCH_
+
+#disabled job run at startup
+spring.batch.job.enabled=false
+
+batch.overseas.job.cron=*/59 * * * * *
+xe.scheduler.job.overseas-endpoint-url=http://localhost:8080/in-overseas
+xe.scheduler.job.overseas-endpoint-timeout-in-seconds=5
+xe.scheduler.job.overseas-lookup-job-scheduler-chunk-size=100
